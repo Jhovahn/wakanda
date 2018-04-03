@@ -15,3 +15,12 @@ h1 {
 p {
   font-size: 30px;
 }
+
+.container {
+  padding-top: 10%;
+  top: 50%;
+}
+
+img {
+  height: 50px;
+}

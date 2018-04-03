@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css" type="text/css">
+  <link rel="icon" href="favicon.png">
+</head>
+  <body text-align="center">
+    <h1>Get your Name</h1>
+    <br/>
+    <input type="text" id="text" placeholder="e.g Mary">
+    <br/><br/>
+    <p id="result">See your Wakanda name here</p>
+
+    <button id="btn" onclick="myFunction()" class="btn btn-primary"><strong>Get your Wakanda Name</strong></button>
+    <script>
+    function myFunction() {
+  document.getElementById('result').innerHTML = conversion(
+    document.getElementById('text').value
+  );
+}
+
+var input = document.getElementById('text');
+
+input.addEventListener('keyup', function(event) {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+    document.getElementById('btn').click();
+  }
+});
+
+function map(alphabetString, wakandaAlphabet) {
+  var result = {};
+  alphabetString.forEach(
+    (letter, index) => (result[letter] = wakandaAlphabet[index])
+  );
+  return result;
+}
+
+function conversion(name) {
+  var alphabetString = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+    ' '
+  ];
+  var wakandaAlphabet = [
+    'ka',
+    'zu',
+    'mi',
+    'te',
+    'ku',
+    'lu',
+    'ji',
+    'ri',
+    'ki',
+    'zu',
+    'me',
+    'ta',
+    'rin',
+    'to',
+    'mo',
+    'no',
+    'ke',
+    'shi',
+    'ari',
+    'chi',
+    'do',
+    'ru',
+    'mei',
+    'na',
+    'fu',
+    'z',
+    ' '
+  ];
+
+  var result = '';
+  name = name.toLowerCase().replace(/[^a-z \s+]/gi, '');
+
+  var lib = map(alphabetString, wakandaAlphabet);
+
+  for (var i = 0; i < name.length; i++) {
+    result += lib[name[i]];
+  }
+  return name === '' ? 'Enter valid name' : result;
+}
+</script>
+  </body>
+</html>

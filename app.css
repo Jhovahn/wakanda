@@ -1,0 +1,17 @@
+body {
+  text-align: center;
+  background-color: black;
+}
+
+h1,
+p {
+  color: blue;
+  font-family: 'Courier';
+}
+
+h1 {
+}
+
+p {
+  font-size: 30px;
+}
